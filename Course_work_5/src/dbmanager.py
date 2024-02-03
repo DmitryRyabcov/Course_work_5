@@ -1,7 +1,7 @@
 import psycopg2
 import json
 import os
-from config import  JSON_DATA_DIR
+from Course_work_5.config import config, JSON_DATA_DIR
 
 
 class DBManager:

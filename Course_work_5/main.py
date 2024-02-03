@@ -1,7 +1,7 @@
-from src.dbmanager import DBManager
-from src.headhunter import HeadHunter
+from Course_work_5.src.dbmanager import DBManager
+from Course_work_5.src.headhunter import HeadHunter
 from config import JSON_FILE_NAME, employer_ids
-from sql.db_queries import create_tables, insert_to_employers, insert_to_vacancies
+from Course_work_5.sql.db_queries import create_tables, insert_to_employers, insert_to_vacancies
 from utils import user_interaction
 
 

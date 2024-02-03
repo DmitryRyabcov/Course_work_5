@@ -1,4 +1,4 @@
-from sql.db_queries import get_all_employers_query, get_all_vacancies_query, get_avg_salary_query, get_high_salary_query
+from Course_work_5.sql.db_queries import get_all_employers_query, get_all_vacancies_query, get_avg_salary_query, get_high_salary_query
 
 
 def user_interaction(db_manager):
