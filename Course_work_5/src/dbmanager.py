@@ -127,7 +127,7 @@ class DBManager:
                                         (vacancies.salary_from + vacancies.salary_to) / 2, vacancies.vacancy_url
                                         FROM vacancies
                                         JOIN employers ON vacancies.employer_id = employers.employer_id
-                                        WHERE vacancy_title LIKE '%{keyword}%'
+                                        WHERE vacancy_title ILIKE '%{keyword}%'
                                         ORDER BY employers.employer_name;
                                         """
 

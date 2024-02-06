@@ -9,11 +9,10 @@ class HeadHunter:
 
     _base_url = "https://api.hh.ru/vacancies"
 
-    def __init__(self, vacancy_area=100, page=0, per_page=50) -> None:
+    def __init__(self, page=0, per_page=50) -> None:
         """
         Инициализатор экземпляров класса для работы с API
         """
-        self.vacancy_area = vacancy_area
         self.page = page
         self.per_page = per_page
 
@@ -27,14 +26,12 @@ class HeadHunter:
         common_list_vacancies = []
         for employer_id in employers:
             params = {
-                'area': self.vacancy_area,
                 'employer_id': employer_id,
                 'per_page': self.per_page
             }
             response = requests.get(self._base_url, params=params)
             if response.status_code == 200:
                 vacancies = response.json()['items']
-
                 if vacancies:
                     list_vacancies = self.__class__.organize_vacancy_info(vacancies)
                     common_list_vacancies.extend(list_vacancies)
@@ -96,7 +93,7 @@ class HeadHunter:
                 return
 
         try:
-            with open(filepath, 'w') as file:
+            with open(filepath, 'w', encoding='utf-8') as file:
                 json.dump(vacancy_list, file, indent=2, ensure_ascii=False)
             print(f'Данные успешно записаны в файл {filename}')
         except Exception as e:
